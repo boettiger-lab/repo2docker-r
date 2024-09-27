@@ -15,7 +15,7 @@ COPY environment.yml environment.yml
 RUN conda env update -f environment.yml
 
 COPY install.r install.r
-RUN Rscript install.R
+RUN Rscript install.r
 
 USER ${NB_USER}
 
