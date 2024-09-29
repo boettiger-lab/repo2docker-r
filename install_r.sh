@@ -30,16 +30,15 @@ apt-get install --yes --no-install-recommends python3-{dbus,gi,apt} \
 ## Then install bspm (as root) and enable it, and enable a speed optimization
 Rscript -e 'install.packages("bspm")'
 RHOME=$(R RHOME)
-echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
+# must go first
+echo "options(bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site
 echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
+echo "suppressMessages(bspm::enable())" >> ${HOME}/.Rprofile
 
 chown root:staff ${RHOME}/site-library
 chmod g+ws ${RHOME}/site-library
-echo "options(bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site
-
 
 ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
-
 
 ## add user to sudoers
 usermod -a -G staff ${NB_USER}

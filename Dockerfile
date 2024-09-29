@@ -17,7 +17,5 @@ RUN conda env update -f environment.yml
 COPY install.r install.r
 RUN Rscript install.r
 
-# regular user shouldn't default to bspm
-RUN sed -i 's/^suppressMessages(bspm::enable())//' /usr/lib/R/etc/Rprofile.site
 USER ${NB_USER}
 
