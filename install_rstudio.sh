@@ -17,7 +17,7 @@ apt-get update && apt-get -y install \
     wget
 
 ARCH=$(dpkg --print-architecture)
-UBUNTU_CODENAME="noble"
+source /etc/os-release
 
 ## Download RStudio Server for Ubuntu 18+
 DOWNLOAD_FILE=rstudio-server.deb
