@@ -38,8 +38,8 @@ echo "options(bspm.sudo = TRUE)" >> ${R_HOME}/etc/Rprofile.site
 echo "options(bspm.version.check=FALSE)" >> ${R_HOME}/etc/Rprofile.site
 echo "suppressMessages(bspm::enable())" >> ${HOME}/.Rprofile
 
-chown root:staff ${RHOME}/site-library
-chmod g+ws ${RHOME}/site-library
+chown root:staff ${R_HOME}/site-library
+chmod g+ws ${R_HOME}/site-library
 
 ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
 
