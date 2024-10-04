@@ -32,14 +32,14 @@ apt-get install --yes --no-install-recommends python3-{dbus,gi,apt} \
 	make sudo r-cran-{docopt,littler,remotes} 
 ## Then install bspm (as root) and enable it, and enable a speed optimization
 Rscript -e 'install.packages("bspm")'
-RHOME=$(R RHOME)
+R_HOME=$(R RHOME)
 # must go first
-echo "options(bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site
-echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
+echo "options(bspm.sudo = TRUE)" >> ${R_HOME}/etc/Rprofile.site
+echo "options(bspm.version.check=FALSE)" >> ${R_HOME}/etc/Rprofile.site
 echo "suppressMessages(bspm::enable())" >> ${HOME}/.Rprofile
 
-chown root:staff ${RHOME}/site-library
-chmod g+ws ${RHOME}/site-library
+chown root:staff ${R_HOME}/site-library
+chmod g+ws ${R_HOME}/site-library
 
 ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
 
