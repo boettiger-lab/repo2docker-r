@@ -73,5 +73,5 @@ cp /etc/rstudio/rserver.conf /etc/rstudio/disable_auth_rserver.conf
 echo "auth-none=1" >>/etc/rstudio/disable_auth_rserver.conf
 
 
-su ${NB_USER} -c "conda install -y jupyter-rsession-proxy"
+su ${NB_USER} -c "/opt/conda/bin/conda install -y jupyter-rsession-proxy"
 
