@@ -10,6 +10,9 @@ RUN curl -s https://raw.githubusercontent.com/boettiger-lab/repo2docker-r/refs/h
 COPY install.r install.r
 RUN Rscript install.r
 
+## switch from BSPM to r-universe for user default, only after BSPM does install.r! 
+COPY Rprofile /usr/lib/R/etc/Rprofile.site
 USER ${NB_USER}
+
 COPY environment.yml environment.yml
 RUN conda env update -f environment.yml
